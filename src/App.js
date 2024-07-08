@@ -1,23 +1,68 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import axios from 'axios';
+
 import './App.css';
 
-function App() {
+function App({  }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [, setLoggedInUser] = useState(null);
+
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/admin/login', {
+        email: email,
+        password: password 
+        });
+
+      if (response.data) {
+        setLoggedInUser(response.data);
+        alert('Connexion réussie ! Utilisateur connecté :', response.data);
+       
+      } else {
+        alert('La connexion a échoué. Veuillez vérifier vos informations d\'identification.');
+      }
+    } catch (error) {
+      console.error('Une erreur s\'est produite lors de la connexion :', error);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="text-center">Se connecter</h2>
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Entrez votre email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Entrez votre mot de passe"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary btn-block">
+            Connexion
+          </button>
+        </form>
+        <div className="text-center mt-3">
+         
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url('./car.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    
+    
   }
-}
+  
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  
+  .login-card {
+    height: 64%;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(232, 232, 232, 0.9);
+    align-content: center;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  
+  .login-card h2 {
+    text-align: center;
+    margin-bottom: 15%;
+    text-shadow: 2px 2px 8px rgba(51, 51, 51, 0.5);
+    font-family: 'Roboto', sans-serif;
+    color:#000000
+
+
   }
-}
+  
+  .login-card .form-group {
+    margin-bottom: 15px;
+   
+  }
+  
+  .login-card input[type='email'],
+  .login-card input[type='password'] {
+    width: 93%;
+    padding: 12px;
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    font-size: medium;
+    
+    
+    
+  }
+  
+  .login-card button[type='submit'] {
+    width: 80%;
+    padding: 15px;
+    border: none;
+    margin-left: 10%;
+    border-radius: 15px;
+    background-color: #1b1b1b;
+    color: #fff;
+    margin-top: 40px;
+  }
+  
+  .login-card button[type='submit']:hover {
+    background-color: #637396;
+  }
+  
+  .login-card .text-center {
+    margin-top: 5%;
+    text-align: center;
+  }
+  .login-card .text-center1 {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+  }   
+  
+  .icon{
+    margin-top: -5px;
+    padding: 10px;
+  }
+  
