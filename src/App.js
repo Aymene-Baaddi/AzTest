@@ -5,10 +5,11 @@ import './App.css';
 
 function App({  }) {
   // eslint-disable-next-line
+
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="text-center">Se connecter</h2>
+        <h2 className="text-center">Hello , entrer votre infos pour se connecter </h2>
         <form >
           <div className="form-group">
             <input
