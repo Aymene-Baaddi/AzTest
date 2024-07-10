@@ -5,6 +5,7 @@ import './App.css';
 
 function App({  }) {
   // eslint-disable-next-line
+  const a = 10;
 
   return (
     <div className="login-container">
