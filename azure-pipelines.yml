@@ -48,9 +48,9 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task:AzureWebAppContainer@1
-    displayName: Deploy Docker Image to Azure App Service
-      inputs: 
+    - task: AzureWebAppContainer@1
+      displayName: Deploy Docker Image to Azure App Service
+      inputs:
         azureSubscription: 'Temporary Subscription -  Hassoun (4c937cb0-557b-4a3d-b505-a43df1f5819b)'
         appName: 'containerpipeline'
         imageName: '$(containerRegistry)/$(imageRepository):$(tag)'
