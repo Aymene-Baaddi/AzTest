@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'da85116b-3ab2-405c-82ec-16dc0b6fd72e'
-  SONARQUBE_SERVICE_CONNECTION: 'bd-sonarcube2'
+  SONARQUBE_SERVICE_CONNECTION: 'http://192.168.1.191:9000'
   SONARQUBE_AUTH_TOKEN: 'sqp_6b7f9c0fa65afeb4179378cccfd75b533457795c'
   imageRepository: 'aaspipeline'
   containerRegistry: 'mywebapp.azurecr.io'
