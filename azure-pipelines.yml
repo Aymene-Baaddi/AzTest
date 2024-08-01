@@ -11,8 +11,6 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'da85116b-3ab2-405c-82ec-16dc0b6fd72e'
-  SONARQUBE_SERVICE_CONNECTION: 'http://192.168.1.191:9000'
-  SONARQUBE_AUTH_TOKEN: 'sqp_6b7f9c0fa65afeb4179378cccfd75b533457795c'
   imageRepository: 'aaspipeline'
   containerRegistry: 'mywebapp.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
@@ -25,26 +23,6 @@ stages:
 - stage: Build
   displayName: Build and push stage
   jobs:
-  - job: SonarQubeAnalysisFrontend
-    displayName: 'SonarQube Analysis for Frontend Microservices'
-    steps:
-    - task: NodeTaskRunnerInstaller@0
-      inputs:
-        nodeVersion: '16'
-
-    - script: |
-        npm install -g sonar-scanner
-      displayName: 'Install SonarQube Scanner'
-
-    - script: |
-        sonar-scanner \
-          -Dsonar.projectKey=AASContainer_AASContainer_AZDpXRR0ttJVSlAH5UnY\
-          -Dsonar.projectName=AASContainer \
-          -Dsonar.sources=. \
-          -Dsonar.host.url=$(SONARQUBE_SERVICE_CONNECTION) \
-          -Dsonar.login=$(SONARQUBE_AUTH_TOKEN)
-      displayName: 'Run SonarQube Analysis'
-
   - job: Build
     displayName: Build
     pool:
@@ -75,3 +53,4 @@ stages:
         azureSubscription: 'Temporary Subscription -  Hassoun (4c937cb0-557b-4a3d-b505-a43df1f5819b)'
         appName: 'containerpipeline'
         imageName: '$(containerRegistry)/$(imageRepository):$(tag)'
+
